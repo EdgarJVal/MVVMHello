@@ -9,6 +9,7 @@ namespace MVVMHello.DAL
         public List<Customer> GetCustomer()
         {
             var customers = new List<Customer>();
+            var rnd = new Random();
 
             for (int i = 1; i <= 20; i++)
             {
@@ -18,7 +19,7 @@ namespace MVVMHello.DAL
                     FirstName = Guid.NewGuid().ToString(),
                     SecondName = Guid.NewGuid().ToString(),
                     LastName = Guid.NewGuid().ToString(),
-                    IsEnable = i > 10,
+                    IsEnable = rnd.Next(1, 20)>10 ? true : false,
                     LastLogin = DateTime.Now.AddDays(i)
                 });
             }
